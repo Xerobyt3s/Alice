@@ -17,7 +17,7 @@ while True:
             text = text.lower()
 
 
-            if (text.startwith("eva")):
+            if (text.startwith("alice")):
                 print(text)
 
     except speech_recognition.UnknownValueError():
