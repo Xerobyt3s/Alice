@@ -1,2 +1,2 @@
-# evo
+# Alice
 All purpose ai assistant 

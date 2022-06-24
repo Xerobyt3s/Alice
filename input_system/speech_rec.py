@@ -18,9 +18,12 @@ while True:
 
             test = f"{text}"
 
-            if (test.find("Alice") != -1):
+
+            if (text.startwith("alice")):
                 print(text)
             
 
-    except:
+    except speech_recognition.UnknownValueError():
+
+        recognizer = speech_recognition.Recognizer()
         continue
