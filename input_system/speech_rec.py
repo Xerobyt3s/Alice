@@ -1,26 +1,26 @@
-import speech_recognition
-import pyttsx3
+import speech_recognition as sr
+import pyaudio
 
+r = sr.Recognizer()
 
-recognizer = speech_recognition.Recognizer()
 
 while True:
+    
 
     try:
+        with sr.Microphone() as mic:
+            r.adjust_for_ambient_noise(mic, duration=0.2)
+            audio = r.listen(mic)
 
-        with speech_recognition.Microphone() as mic:
+            text = r.recognize_google(audio)
 
-            recognizer.adjust_for_ambient_noise(mic, 0.2)
-            audio = recognizer.listen(mic)
+            text.lower()
 
-            text = recognizer.recognize_google(audio)
-            text = text.lower()
+            test = f"{text}"
 
-
-            if (text.startwith("eva")):
+            if (test.find("Alice") != -1):
                 print(text)
+            
 
-    except speech_recognition.UnknownValueError():
-
-        recognizer = speech_recognition.Recognizer()
+    except:
         continue
